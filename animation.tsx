@@ -183,14 +183,21 @@ import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 
 console.log(sortedPreImages)
 
-
+import { ethers } from "ethers"
 
 document.addEventListener("DOMContentLoaded", async (event) => {
   /* @ts-ignore:next-line */
   var nftid: number = parseInt(getUrlParameter('nftid'));
 
   /* @ts-ignore:next-line */
-  const sdk = new ThirdwebSDK(configs.chain.id);
+  // const sdk = new ThirdwebSDK(configs.chain.id);
+
+  const provider = ethers.getDefaultProvider(configs.chain.id, {
+    alchemy: configs.alchemyKey,
+  });
+
+  const sdk = new ThirdwebSDK(provider);
+
   const contract = await sdk.getContract(configs.contractAddress);
   const isRedeemable = await contract.call("isRedeemable", nftid);
 
