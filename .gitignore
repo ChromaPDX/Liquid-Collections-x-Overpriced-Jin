@@ -1,4 +1,4 @@
-.secrets.json
+.secrets
 node_modules
 
 .env

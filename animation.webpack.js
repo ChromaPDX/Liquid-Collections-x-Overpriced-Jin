@@ -4,9 +4,6 @@ const path = require("path");
 
 const isProduction = process.env.NODE_ENV == "production";
 
-// const ADDRESS = "0x426c2C35c5937a52A1Cd82cA2B47e39c76cee412";
-
-// console.log("building project for contract @", ADDRESS);
 
 const config = {
   entry: "./animation.tsx",
