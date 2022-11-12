@@ -41,44 +41,44 @@ const postImages = importAll(require.context('./src/nfts/Carly/GiftNFTs/', false
 /* @ts-ignore:next-line */
 const preContext = require.context('./src/nfts/Carly/Redeemed\ NFTs/', false, /opj.redeemed_\d{3}.jpg$/);
 
-// const preImagesImport2 = importAll(preContext)
+const preImagesImport2 = importAll(preContext)
 
-// console.log(preImagesImport2);
-// const unbundledFiles = preContext.keys();
+console.log(preImagesImport2);
+const unbundledFiles = preContext.keys();
 
-// const preImages3 = [];
-// for (let i = 0; i < preImagesImport2.length; i++) {
-//   const matches = unbundledFiles[i].match(/opj.redeemed_(\d{3}).jpg+/);
+const preImages3 = [];
+for (let i = 0; i < preImagesImport2.length; i++) {
+  const matches = unbundledFiles[i].match(/opj.redeemed_(\d{3}).jpg+/);
 
-//   /* @ts-ignore:next-line */
-//   preImages3[i] = {
-//     input: unbundledFiles[i],
-//     output: preImagesImport2[i],
-//     num: parseInt(matches[1])
-//   }
-// }
+  /* @ts-ignore:next-line */
+  preImages3[i] = {
+    input: unbundledFiles[i],
+    output: preImagesImport2[i],
+    num: parseInt(matches[1])
+  }
+}
 
-// /* @ts-ignore:next-line */
-// const sortedPreImages = preImages3.sort((a, b) => a.num - b.num)
+/* @ts-ignore:next-line */
+const sortedPreImages = preImages3.sort((a, b) => a.num - b.num)
 
 
 
-// var getUrlParameter = function getUrlParameter(sParam) {
-//   var sPageURL = window.location.search.substring(1),
-//     sURLVariables = sPageURL.split('&'),
-//     sParameterName,
-//     i;
+var getUrlParameter = function getUrlParameter(sParam) {
+  var sPageURL = window.location.search.substring(1),
+    sURLVariables = sPageURL.split('&'),
+    sParameterName,
+    i;
 
-//   for (i = 0; i < sURLVariables.length; i++) {
-//     sParameterName = sURLVariables[i].split('=');
+  for (i = 0; i < sURLVariables.length; i++) {
+    sParameterName = sURLVariables[i].split('=');
 
-//     if (sParameterName[0] === sParam) {
-//       return sParameterName[1] === undefined ? "0" : decodeURIComponent(sParameterName[1]);
-//     }
-//   }
-//   return "0"
-//   // return false;
-// };
+    if (sParameterName[0] === sParam) {
+      return sParameterName[1] === undefined ? "0" : decodeURIComponent(sParameterName[1]);
+    }
+  }
+  return "0"
+  // return false;
+};
 
 // const YourApp = () => {
 //   const [state, setState] = useState({ image: null })
@@ -149,7 +149,7 @@ const preContext = require.context('./src/nfts/Carly/Redeemed\ NFTs/', false, /o
 // document.addEventListener("DOMContentLoaded", (event) =>
 //   ReactDom.render(<LiquidCollectionReactApp />, document.getElementById('root')));
 
-// import { ThirdwebSDK } from "@thirdweb-dev/sdk";
+import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 
 // import configs from "./config";
 
@@ -163,23 +163,23 @@ const preContext = require.context('./src/nfts/Carly/Redeemed\ NFTs/', false, /o
 // /* @ts-ignore:next-line */
 // const preContext = require.context('./src/nfts/Carly/GiftNFTs/', false, /\.(png|jpe?g|svg)$/);
 
-const preImagesImport2 = importAll(preContext)
-const unbundledFiles = preContext.keys();
+// const preImagesImport2 = importAll(preContext)
+// const unbundledFiles = preContext.keys();
 
-const preImages3 = [];
-for (let i = 0; i < preImagesImport2.length; i++) {
-  const matches = unbundledFiles[i].match(/.\/(\d*).jpg+/);
+// const preImages3 = [];
+// for (let i = 0; i < preImagesImport2.length; i++) {
+//   const matches = unbundledFiles[i].match(/.\/(\d*).jpg+/);
 
-  /* @ts-ignore:next-line */
-  preImages3[i] = {
-    input: unbundledFiles[i],
-    output: preImagesImport2[i],
-    num: parseInt(matches[1])
-  }
-}
+//   /* @ts-ignore:next-line */
+//   preImages3[i] = {
+//     input: unbundledFiles[i],
+//     output: preImagesImport2[i],
+//     num: parseInt(matches[1])
+//   }
+// }
 
-/* @ts-ignore:next-line */
-const sortedPreImages = preImages3.sort((a, b) => a.num - b.num)
+// /* @ts-ignore:next-line */
+// const sortedPreImages = preImages3.sort((a, b) => a.num - b.num)
 
 console.log(sortedPreImages)
 
