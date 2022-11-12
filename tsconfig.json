@@ -12,5 +12,8 @@
   "files": [
     "src/Checkout.tsx",
     "src/Redeem.tsx",
+  ],
+  "include": [
+    "index.d.ts"
   ]
 }
