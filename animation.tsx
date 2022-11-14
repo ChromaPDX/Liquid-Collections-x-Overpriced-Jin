@@ -1,34 +1,6 @@
-// import { Alchemy, Network } from "alchemy-sdk";
 import configs from "./config";
-// const chain = require("wagmi").chain;
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 import { ethers } from "ethers"
-// let network;
-// if (configs.chain === chain.goerli) {
-//   network = Network.ETH_GOERLI;
-// } else {
-//   network = Network.ETH_MAINNET
-// }
-// const alchemy = new Alchemy({ apiKey: configs.alchemyKey, network });
-
-// alchemy.nft.get
-
-// // require("@rainbow-me/rainbowkit/styles.css");
-
-// import React, { useEffect, useState } from "react";
-// import ReactDom from "react-dom";
-
-
-
-// import {
-//   useContract,
-//   useContractRead,
-//   useContractWrite,
-//   ChainId, ThirdwebProvider, ConnectWallet,
-//   useAddress,
-//   ThirdwebNftMedia, useNFTs, useAccount
-// } from "@thirdweb-dev/react";
-
 
 function importAll(r) {
   return r.keys().map(r);
@@ -37,19 +9,17 @@ function importAll(r) {
 /* @ts-ignore:next-line */
 const postImages = importAll(require.context('./src/nfts/Carly/Redeemed\ NFTs/', false, /opj.redeemed_\d{3}.jpg$/));
 
-
-
 /* @ts-ignore:next-line */
-const preContext = require.context('./src/nfts/Carly/GiftNFTs/', false, /\.(png|jpe?g|svg)$/);
+const preContext = require.context('./src/nfts/Carly/GiftNFTs/', false, /(\d{1,3}).jpg$/);
 
 const preImagesImport2 = importAll(preContext)
 
-console.log(preImagesImport2);
+// console.log(preImagesImport2);
 const unbundledFiles = preContext.keys();
 
 const preImages3 = [];
 for (let i = 0; i < preImagesImport2.length; i++) {
-  const matches = unbundledFiles[i].match(/\.(png|jpe?g|svg)$/);
+  const matches = unbundledFiles[i].match(/(\d{1,3}).jpg$/)
 
   /* @ts-ignore:next-line */
   preImages3[i] = {
@@ -93,8 +63,8 @@ document.addEventListener("DOMContentLoaded", async (event) => {
   var nftid: number = parseInt(getUrlParameter('nftid'));
 
   /* @ts-ignore:next-line */
-  console.log(sortedPreImages[nftid].output)
-  console.log(postImages[nftid])
+  // console.log(sortedPreImages[nftid].output)
+  // console.log(postImages[nftid])
 
   /* @ts-ignore:next-line */
   // const sdk = new ThirdwebSDK(configs.chain.id);

@@ -32,7 +32,7 @@ function Home() {
   const myAddress = account[0].data?.address;
 
   const [state, setState] = useState<{ quantity: number, stage: number, myNfts: NFT[] }>({
-    quantity: 1,
+    quantity: 300,
     stage: 0,
     myNfts: []
   });
@@ -71,7 +71,7 @@ function Home() {
               <p className="lead">This is a wholesale depot for 300 custom-made Liquid Collections x OPJ gin NFTs. The mint button below will allow the purchase of the whole lot of 300. Hope you brought your truck.</p>
               <div className="d-flex">
 
-                <input
+                {/* <input
                   style={
                     {
                       width: '4rem'
@@ -86,7 +86,7 @@ function Home() {
                       ...state,
                       quantity: Math.min(Number.parseInt(e.target.value), maxNfts)
                     })
-                  }} />
+                  }} /> */}
 
 
                 <button
