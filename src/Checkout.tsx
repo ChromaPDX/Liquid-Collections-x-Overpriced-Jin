@@ -6,7 +6,7 @@ import { BigNumber, ethers } from "ethers"
 import configs from "../config";
 
 import AppFrame from "./AppFrame";
-import { getAccountPath } from 'ethers/lib/utils';
+// import { getAccountPath } from 'ethers/lib/utils';
 
 const ContractAbi = require("../artifacts/contracts/LiquidCollections.sol/LiquidCollections.json");
 

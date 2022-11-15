@@ -15,22 +15,24 @@ module.exports = {
   // _pricePerToken: "0.06",
   // _pricePerTokenInWei: "60000000000000000",
 
+  // _pricePerToken: "0.001",
+  // _pricePerTokenInWei: "1000000000000000",
 
-  _pricePerToken: "0.001",
-  _pricePerTokenInWei: "1000000000000000",
+
+  _pricePerToken: "0.04",
+  _pricePerTokenInWei: "40000000000000000",
 
   paperCheckoutLink: "https://paper.xyz/checkout/f1282701-776b-44f2-909e-0e20b758608c",
 
   currency: "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
 
   // contractAddress: "0xA8a4764FD41b036D4B00795bE31E0eba92ef869d",
-  contractAddress: "0xb449Ae0520278B6170186c910D68505a4DDA4C12",
+  // contractAddress: "0xb449Ae0520278B6170186c910D68505a4DDA4C12",
   // contractAddress: "0x83D70B516D691e2518bebcc4825ccf98f5a08d7C",
+  contractAddress: "0x2205CbFf651e7C092f33f9e2d175CD22246e24a3",
 
-  owner: "0xB1e03503AB2C0159a4CeF0f9b4703292C221eF45",
-  // owner: "0x0A58e58ECb0dD36E0e56975b86F9d76Dd9e4272e",
-
-
+  // owner: "0xB1e03503AB2C0159a4CeF0f9b4703292C221eF45",
+  owner: "0x0A58e58ECb0dD36E0e56975b86F9d76Dd9e4272e",
 
   allowListProof: [
     '0xeafac40d278a20912dad05fa5ea3b0c8489d4b9e382f8925e343ea6d7986b376',
@@ -38,12 +40,12 @@ module.exports = {
   ],
 
   // development
-  alchemyKey: "yxZEOqdqzCNCExJZEwY4iPEeu6jZpyMi",
-  chain: chain.goerli,
+  // alchemyKey: "yxZEOqdqzCNCExJZEwY4iPEeu6jZpyMi",
+  // chain: chain.goerli,
 
   // production
-  // alchemyKey: "577rlGmGIdps3j2owCjazI3jPeYrgvNt",
-  // chain: chain.mainnet
+  alchemyKey: "577rlGmGIdps3j2owCjazI3jPeYrgvNt",
+  chain: chain.mainnet,
 
   stripeCheckoutLink: "https://buy.stripe.com/5kA8xs4Tp4SkehafYY",
 
