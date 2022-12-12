@@ -2,6 +2,8 @@ const chain = require("wagmi").chain;
 
 // 5000000000000000
 module.exports = {
+  numberOfNftsMintableAtOnce: null, // unlimited
+
   // _pricePerToken: "0.005",
   // _pricePerTokenInWei: "5000000000000000",
   // paper link smoketest (0.005) https://paper.xyz/checkout/54120ec3-a856-4f36-ab9d-bdda30ab8c17
@@ -19,8 +21,8 @@ module.exports = {
   // _pricePerTokenInWei: "1000000000000000",
 
 
-  _pricePerToken: "0.04",
-  _pricePerTokenInWei: "40000000000000000",
+  _pricePerToken: "0.025",
+  _pricePerTokenInWei: "25000000000000000",
 
   paperCheckoutLink: "https://paper.xyz/checkout/f1282701-776b-44f2-909e-0e20b758608c",
 
@@ -29,9 +31,13 @@ module.exports = {
   // contractAddress: "0xA8a4764FD41b036D4B00795bE31E0eba92ef869d",
   // contractAddress: "0xb449Ae0520278B6170186c910D68505a4DDA4C12",
   // contractAddress: "0x83D70B516D691e2518bebcc4825ccf98f5a08d7C",
+  
+  // OPJ
   contractAddress: "0x2205CbFf651e7C092f33f9e2d175CD22246e24a3",
 
   // owner: "0xB1e03503AB2C0159a4CeF0f9b4703292C221eF45",
+
+  // Kit
   owner: "0x0A58e58ECb0dD36E0e56975b86F9d76Dd9e4272e",
 
   allowListProof: [

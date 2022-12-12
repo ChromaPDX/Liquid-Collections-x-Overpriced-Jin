@@ -6,16 +6,35 @@ function importAll(r) {
   return r.keys().map(r);
 }
 
-/* @ts-ignore:next-line */
-const postImages = importAll(require.context('./src/nfts/Carly/Redeemed\ NFTs/', false, /opj.redeemed_\d{3}.jpg$/));
+
+const postImages1 = importAll(
+  /* @ts-ignore:next-line */
+  require.context('./src/nfts/Carly/Redeemed\ NFTs/', false, /opj.redeemed_\d{3}.jpg$/)
+);
+const postImages2 = importAll(
+  /* @ts-ignore:next-line */
+  require.context('./src/nfts/batch2/SoldNFTs/', false, /opj.redeemed_\d{3}.jpg$/),
+);
+
+const postImages = [...postImages1, ...postImages2];
 
 /* @ts-ignore:next-line */
-const preContext = require.context('./src/nfts/Carly/GiftNFTs/', false, /(\d{1,3}).jpg$/);
+const preContextBatch1 = require.context('./src/nfts/Carly/GiftNFTs/', false, /\.(png|jpe?g|svg)$/);
+const preImagesImport2Batch1 = importAll(preContextBatch1)
+/* @ts-ignore:next-line */
+const preContextBatch2 = require.context('./src/nfts/batch2/ForSaleNFTs/', false, /(\d{1,3}).jpg$/);
+const preImagesImport2Batch2 = importAll(preContextBatch2)
 
-const preImagesImport2 = importAll(preContext)
+const preContextKeys = [...preContextBatch1.keys(), ...preContextBatch2.keys()];
+
+const preImagesImport2 = [
+  ...preImagesImport2Batch1,
+  ...preImagesImport2Batch2,
+  
+]
 
 // console.log(preImagesImport2);
-const unbundledFiles = preContext.keys();
+const unbundledFiles = preContextKeys;  //preContext.keys();
 
 const preImages3 = [];
 for (let i = 0; i < preImagesImport2.length; i++) {

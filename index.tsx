@@ -22,7 +22,7 @@ import {
 } from "@thirdweb-dev/react";
 import { NFT } from "@thirdweb-dev/sdk";
 
-const maxNfts = 300;
+console.log("configs", configs)
 
 function Home() {
   const { contract, isLoading: contractIsLoading } = useContract(configs.contractAddress);
@@ -32,22 +32,22 @@ function Home() {
   const myAddress = account[0].data?.address;
 
   const [state, setState] = useState<{ quantity: number, stage: number, myNfts: NFT[] }>({
-    quantity: 300,
+    quantity: 1,
     stage: 0,
     myNfts: []
   });
 
-  // useEffect(() => {
-  //   if (myAddress && state.stage === 0) {
-  //     contract?.erc721.getOwned(myAddress).then((nfts) => {
-  //       setState({
-  //         ...state,
-  //         stage: 1,
-  //         myNfts: nfts,
-  //       });
-  //     })
-  //   }
-  // })
+  useEffect(() => {
+    if (myAddress && state.stage === 0) {
+      contract?.erc721.getOwned(myAddress).then((nfts) => {
+        setState({
+          ...state,
+          stage: 1,
+          myNfts: nfts,
+        });
+      })
+    }
+  })
 
   return (
     <div>
@@ -71,7 +71,7 @@ function Home() {
               <p className="lead">This is a wholesale depot for 300 custom-made Liquid Collections x OPJ gin NFTs. The mint button below will allow the purchase of the whole lot of 300. Hope you brought your truck.</p>
               <div className="d-flex">
 
-                {/* <input
+                 <input
                   style={
                     {
                       width: '4rem'
@@ -82,17 +82,24 @@ function Home() {
                   max="maxNfts"
                   value={state.quantity}
                   onChange={(e) => {
+                    const n: number = Number.parseInt(e.target.value) || 0;
                     setState({
                       ...state,
-                      quantity: Math.min(Number.parseInt(e.target.value), maxNfts)
+                      quantity: configs.numberOfNftsMintableAtOnce ? Math.min(n, configs.numberOfNftsMintableAtOnce) : n
                     })
-                  }} /> */}
+                  }} />
 
 
                 <button
                   className="btn btn-outline-dark flex-shrink-0" type="button"
-                  onClick={(e) => {
-                    contract?.erc721.claim(state.quantity)
+                  onClick={async (e) => {
+                    try {
+                      const tx = await contract?.erc721.claim(state.quantity);
+                      alert(`transaction succeded. You just purchased ${state.quantity}`)
+                    } catch (e) {
+                      console.error(e)
+                      alert("transaction failed" + e)
+                    }
                   }}
                 >
 
