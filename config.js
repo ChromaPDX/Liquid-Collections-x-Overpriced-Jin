@@ -20,7 +20,6 @@ module.exports = {
   // _pricePerToken: "0.001",
   // _pricePerTokenInWei: "1000000000000000",
 
-
   _pricePerToken: "0.025",
   _pricePerTokenInWei: "25000000000000000",
 
