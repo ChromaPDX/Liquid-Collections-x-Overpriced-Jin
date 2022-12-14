@@ -25,7 +25,7 @@ function pad(num, size) {
 }
 
 const lastIndex = 299;
-const total = 300;
+const total = 500;
 for (let i = 1; i < total + 1; i++) {
   const actualIndex = i + lastIndex;
   const fancyIndex = actualIndex + 1;
