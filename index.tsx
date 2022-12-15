@@ -64,11 +64,13 @@ function Home() {
             </div>
             <div className="col-md-6">
 
-              <h1 className="display-5 fw-bolder">Liquid Collections x OPJ gin</h1>
+              <h1 className="display-5 fw-bolder">OPJ Gin x Liquid Collections</h1>
               <div className="fs-5 mb-5">
                 <span>{configs._pricePerToken} ETH</span>
               </div>
-              <p className="lead">This is a wholesale depot for 300 custom-made Liquid Collections x OPJ gin NFTs. The mint button below will allow the purchase of the whole lot of 300. Hope you brought your truck.</p>
+              <p className="lead">
+                Mint your gin-backed NFT using the button below. Each NFT comes with the right to redeem a bottle of OPJ gin, will unlock access to a series of Overpriced events (IRL + virtual), and include some Spectacular tonic (from Q Mixers) for a tasty J&T. The first 200 token buyers will also receive a package of super premium olive brine for your dirty martinis.
+              </p>
               <div className="d-flex">
 
                  <input

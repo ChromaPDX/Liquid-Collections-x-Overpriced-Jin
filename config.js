@@ -20,8 +20,8 @@ module.exports = {
   // _pricePerToken: "0.001",
   // _pricePerTokenInWei: "1000000000000000",
 
-  _pricePerToken: "0.065",
-  _pricePerTokenInWei: "65000000000000000",
+  _pricePerToken: "0.025",
+  _pricePerTokenInWei: "25000000000000000",
 
   paperCheckoutLink: "https://paper.xyz/checkout/f1282701-776b-44f2-909e-0e20b758608c",
 
