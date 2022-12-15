@@ -72,42 +72,51 @@ function Home() {
                 Mint your gin-backed NFT using the button below. Each NFT comes with the right to redeem a bottle of OPJ gin, will unlock access to a series of Overpriced events (IRL + virtual), and include some Spectacular tonic (from Q Mixers) for a tasty J&T. The first 200 token buyers will also receive a package of super premium olive brine for your dirty martinis.
               </p>
               <div className="d-flex">
+                {
+                  myAddress ? <>
+                    <input
+                      id="mintQuantity"
+                      style={
+                        {
+                          width: '4rem'
+                        }
+                      }
+                      type="number"
+                      min="1"
+                      max="maxNfts"
+                      value={state.quantity}
+                      onChange={(e) => {
+                        const n: number = Number.parseInt(e.target.value) || 0;
+                        setState({
+                          ...state,
+                          quantity: configs.numberOfNftsMintableAtOnce ? Math.min(n, configs.numberOfNftsMintableAtOnce) : n
+                        })
+                      }} />
 
-                 <input
-                  style={
-                    {
-                      width: '4rem'
-                    }
-                  }
-                  type="number"
-                  min="1"
-                  max="maxNfts"
-                  value={state.quantity}
-                  onChange={(e) => {
-                    const n: number = Number.parseInt(e.target.value) || 0;
-                    setState({
-                      ...state,
-                      quantity: configs.numberOfNftsMintableAtOnce ? Math.min(n, configs.numberOfNftsMintableAtOnce) : n
-                    })
-                  }} />
 
+                    <button
+                      id="mintButton"
+                      className="btn btn-outline-dark flex-shrink-0" type="button"
+                      onClick={async (e) => {
+                        try {
+                          const tx = await contract?.erc721.claim(state.quantity);
+                          alert(`transaction succeded. You just purchased ${state.quantity}`)
+                        } catch (e) {
+                          console.error(e)
+                          alert("transaction failed" + e)
+                        }
+                      }}
+                    >
 
-                <button
-                  className="btn btn-outline-dark flex-shrink-0" type="button"
-                  onClick={async (e) => {
-                    try {
-                      const tx = await contract?.erc721.claim(state.quantity);
-                      alert(`transaction succeded. You just purchased ${state.quantity}`)
-                    } catch (e) {
-                      console.error(e)
-                      alert("transaction failed" + e)
-                    }
-                  }}
-                >
+                      <i className="bi-cart-fill me-1"></i>
+                      Mint {state.quantity}
+                    </button>
+                  </> : <>
+                      {/* <p>Make sure to click “Connect Wallet” at the top of this page before minting.</p> */}
+                      <ConnectWallet accentColor="rgb(33, 37, 41)" colorMode="light" />
+                  </>
+                }
 
-                  <i className="bi-cart-fill me-1"></i>
-                  Mint {state.quantity}
-                </button>
               </div>
 
             </div>
@@ -123,7 +132,26 @@ const YourApp = () => {
   const address = useAddress();
   return (
     <div>
-      <ConnectWallet />
+      
+
+      {address && <div className="container-fluid">
+        <div className="row">
+          <div className="col"></div>
+          <div className="col"></div>
+          <div className="col"></div>
+          <div className="col"></div>
+          <div className="col"></div>
+          <div className="col"></div>
+          <div className="col"></div>
+
+          <div className="col-sm">
+            <ConnectWallet accentColor="rgb(33, 37, 41)" colorMode="light" />
+          </div>
+          <div className="col-sm"></div>
+        </div>
+      </div>}
+
+
       <Home />
     </div>
   );
